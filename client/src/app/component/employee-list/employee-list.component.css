@@ -1,0 +1,19 @@
+table {
+    border-collapse: separate;
+    border-collapse: collapse !important;
+    border-spacing: 10px;
+    /* Apply cell spacing */
+  }
+  
+  table,
+  th,
+  td {
+    border: 1px solid #666;    
+  }
+  
+  table th,
+  table td {
+    padding: 1px;
+    
+    /* Apply cell padding */
+  }

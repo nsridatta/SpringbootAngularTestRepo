@@ -1,0 +1,32 @@
+<div class="panel-heading">
+    <div class="panel-heading">
+      <h2>Employees</h2>
+    </div>
+    <div class="panel-body">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th style="text-align: center; vertical-align: middle;">
+              <a ></a></th>
+            <th style="text-align: center; vertical-align: middle;">Lastname</th>
+            <th style="text-align: center; vertical-align: middle;">Email</th>
+            <th style="text-align: center; vertical-align: middle;">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let employee of employees | async">
+            <td  style="text-align: center; vertical-align: middle;" scope="row">{{employee.firstName}}</td>
+            <td  style="text-align: center; vertical-align: middle;" scope="row">{{employee.lastName}}</td>
+            <td  style="text-align: center; vertical-align: middle;"scope="row">{{employee.emailId}}</td>
+            <td>  
+              <div class="center">
+                <button (click)="employeeDetails(employee.id)" class="btn btn-info" style="text-align: center; vertical-align: middle;margin-left: 10px;">Details</button>
+                <button (click)="updateEmployee(employee.id)" class="btn btn-info" style="margin-left: 10px; text-align: center;vertical-align: middle;">Update</button>
+                <button (click)="deleteEmployee(employee.id)" class="btn btn-danger" style="margin:10px; text-align: center;vertical-align: middle;">Delete</button>
+              </div>              
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
