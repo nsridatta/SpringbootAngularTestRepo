@@ -1,14 +1,23 @@
 package net.guides.springboot2.springboot2jpacrudexample.model;
 
+import net.guides.springboot2.springboot2jpacrudexample.validator.EmailVal;
+
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "EMPLOYEES")
 public class Employee {
 
     private long id;
+    @Size(min = 3, max = 10)
     private String firstName;
+    @Size(min = 3, max = 10)
     private String lastName;
+    @EmailVal
+    @NotBlank(message = "Email cannot be blank")
     private String emailId;
 
     public Employee(){
@@ -31,7 +40,8 @@ public class Employee {
         this.id = id;
     }
 
-    @Column(name = "firstName", nullable = false)
+    @NotBlank(message = "First Name cannot be blank")
+    @Column(name = "firstName", nullable = false, length = 10)
     public String getFirstName() {
         return firstName;
     }
@@ -40,7 +50,8 @@ public class Employee {
         this.firstName = firstName;
     }
 
-    @Column(name = "lastName", nullable = false)
+    @NotBlank(message = "Last Name cannot be blank")
+    @Column(name = "lastName", nullable = false, length = 10)
     public String getLastName() {
         return lastName;
     }
@@ -49,7 +60,10 @@ public class Employee {
         this.lastName = lastName;
     }
 
-    @Column(name = "emailId", nullable = false)
+
+
+    @Email(message = "Email must be a valid email address")
+    @Column(name = "emailId", nullable = false, length = 30)
     public String getEmailId() {
         return emailId;
     }
