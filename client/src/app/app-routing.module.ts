@@ -6,15 +6,15 @@ import { EmployeeListComponent } from './component/employee-list/employee-list.c
 import { UpdateEmployeeComponent } from './component/update-employee/update-employee.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'employee', pathMatch: 'full' },
+  { path: '', redirectTo: 'employees', pathMatch: 'full' },
   { path: 'employees', component: EmployeeListComponent },
   { path: 'add', component: CreateEmployeeComponent },
   { path: 'update/:id', component: UpdateEmployeeComponent },
   { path: 'details/:id', component: EmployeeDetailsComponent },
 ];
-
+//Enable Tracing when in the developing state, by default enableTracing shall be true
 @NgModule({
-  imports: [RouterModule.forRoot(routes,{enableTracing:true})],
+  imports: [RouterModule.forRoot(routes,{ enableTracing: false, relativeLinkResolution: 'legacy' })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
