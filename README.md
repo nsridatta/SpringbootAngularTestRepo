@@ -1,5 +1,5 @@
 # Spring Boot Angualr 12 Test Project
-This is a spring boot - angular 8 project which constitues CRUD operatiosn
+This is a spring boot - angular 12 project which constitues CRUD, pageniation, dynamic search, aop logging operatiosn
 
 # Main Page
 ![image](https://user-images.githubusercontent.com/10706953/126323291-1748df78-2f82-4ce2-8c77-be305ebc71d1.png)
