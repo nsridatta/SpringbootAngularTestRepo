@@ -8,12 +8,18 @@ import { Observable } from 'rxjs';
 export class EmployeeService {
 
   private baseUrl = 'http://localhost:8080/employees';
+  
 
   constructor(private http: HttpClient) { }
 
   getEmployee(id: number): Observable<any> {
     return this.http.get(`${this.baseUrl}/${id}`);
   }
+
+  //Add to routes
+  // getEmployeeByName(name: string): Observable<any> {
+  //   return this.http.get(`${this.baseUrl}/name?name={name}`);
+  // }
 
   createEmployee(employee: Object): Observable<Object> {
     return this.http.post(`${this.baseUrl}`, employee);
