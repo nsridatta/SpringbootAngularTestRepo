@@ -1,21 +1,42 @@
 <h3>Update Employee</h3>
-<div style="width: 400px;">
-  <form (ngSubmit)="onSubmit()">
-    <div class="form-group">
-      <label for="name">First Name</label>
-      <input type="text" class="form-control" id="firstName" required [(ngModel)]="employee.firstName" name="firstName">
-    </div>
-
-    <div class="form-group">
-      <label for="name">Last Name</label>
-      <input type="text" class="form-control" id="lastName" required [(ngModel)]="employee.lastName" name="lastName">
-    </div>
-
-    <div class="form-group">
-      <label for="name">Email Id</label>
-      <input type="text" class="form-control" id="emailId" required [(ngModel)]="employee.emailId" name="emailId">
-    </div>
-
-    <button type="submit" class="btn btn-success">Submit</button>
-  </form>
+<div [hidden]="submitted" style="width: 400px;">
+  <div [hidden]="submitted" style="width: 400px;">
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="name">First Name</label>
+        <input required minLength="3" maxLength="10" type="text" ngModel name="name" #name = "ngModel" class="form-control" id="firstName"  [(ngModel)]="employee.name" >
+        <div class="alert alert-danger" *ngIf="name.touched&&!name.valid">
+          First Name is required.
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="lastName">Last Name</label>
+        <input type="text" ngModel name="lastName" #lastName="ngModel" class="form-control" id="lastName" required [(ngModel)]="employee.lastName" >
+        <div class="alert alert-danger" *ngIf="lastName.touched&&!lastName.valid">
+          Last Name is required.
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="email">Email Id</label>
+        <input type="email" ngModel  name="emailId" #emailId="ngModel" class="form-control" id="emailId" required [(ngModel)]="employee.emailId">
+        <div class="alert alert-danger" *ngIf="emailId.touched&&!emailId.valid">
+          Email is required.
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="dateOfJoining">DOJ</label>
+        <input type="date" ngModel name="dateOfJoining" #dateOfJoining="ngModel" class="form-control" id="dateOfJoining" required [(ngModel)]="employee.dateOfJoining" >
+        <div class="alert alert-danger" *ngIf="dateOfJoining.touched&&!dateOfJoining.valid">
+          Date Of Joining is required.
+        </div>
+      </div>
+      <button type="submit" [disabled]="!(name.valid&&lastName.valid&&emailId.valid&&dateOfJoining.valid)" class="btn btn-success">Submit</button>
+      <button type="submit" (click)="gotoList()"class="btn btn-primary" style="margin-left: 10px; text-align: center;vertical-align: middle;">Back</button>
+    </form>
+  </div>
+<div [hidden]="!submitted">
+  <h4>You submitted successfully!</h4>
 </div>
