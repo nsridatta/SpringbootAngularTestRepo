@@ -1,8 +1,9 @@
 export class Employee {
     id: number;
-    firstName: string;
+    name: string;
     lastName: string;
     emailId: string;
     active: boolean;
+    dateOfJoining: string;
     
 }
