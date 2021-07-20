@@ -1,5 +1,10 @@
 # Spring Boot Angualr 12 Test Project
-This is a spring boot - angular 12 project which constitues CRUD, pageniation, dynamic search, aop logging operatiosn
+This is a spring boot - angular 12 project which is a CRUD Application, that has these features implemented:
+1. pageniation, 
+2. Dynamic search using First Name, 
+3. AOP logging, 
+4. Custom validations for Date and Email, 
+5. Custom Exception Handling
 
 # Main Page
 ![image](https://user-images.githubusercontent.com/10706953/126323291-1748df78-2f82-4ce2-8c77-be305ebc71d1.png)
