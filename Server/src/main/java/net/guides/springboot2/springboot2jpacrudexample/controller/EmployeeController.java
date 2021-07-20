@@ -2,8 +2,12 @@ package net.guides.springboot2.springboot2jpacrudexample.controller;
 
 import net.guides.springboot2.springboot2jpacrudexample.exception.ResourceNotFoundException;
 import net.guides.springboot2.springboot2jpacrudexample.model.Employee;
+import net.guides.springboot2.springboot2jpacrudexample.repository.EmployeeRepository;
 import net.guides.springboot2.springboot2jpacrudexample.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
@@ -15,8 +19,24 @@ import java.util.Map;
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
 public class EmployeeController {
+
+    @Autowired
+    private EmployeeRepository employeeRepository;
+
     @Autowired
     private EmployeeService employeeService;
+
+    @RequestMapping(value = "/listPages", method = RequestMethod.GET)
+    Page<Employee> employeesPageable(Pageable pageable) {
+        return employeeRepository.findAll(pageable);
+
+    }
+
+    @GetMapping("/employees/name")
+    public ResponseEntity<List<Employee>> getEmployeesByName(@RequestParam String name)
+            throws ResourceNotFoundException {
+        return new ResponseEntity<List<Employee>>(employeeRepository.findByName(name), HttpStatus.OK);
+    }
 
     @GetMapping("/employees")
     public ResponseEntity<List<Employee>> getAllEmployees(){
@@ -34,14 +54,7 @@ public class EmployeeController {
         return ResponseEntity.ok().body(employeeService.createEmployee(employee));
     }
 
-   /* @GetMapping("/employees?firstName={firstName}")
-    public ResponseEntity<Employee> getEmployeeByName(@RequestParam("firstName") String firstName)
-            throws ResourceNotFoundException {
-        Employee employee = (Employee) employeeRepository.findByFirstName(firstName);
-        return ResponseEntity.ok().body(employee);
-    }*/
-
-   @PutMapping("/employees/{id}")
+    @PutMapping("/employees/{id}")
     public ResponseEntity<Employee> updateEmployee(@PathVariable(value = "id") Long employeeId,
                                                    @Validated @RequestBody Employee employeeDetails) throws ResourceNotFoundException {
        employeeDetails.setId(employeeId);
