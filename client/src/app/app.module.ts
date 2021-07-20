@@ -10,6 +10,12 @@ import { UpdateEmployeeComponent } from './component/update-employee/update-empl
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { SortPipe } from './pipe/sort.pipe';
+import { SimpleSmoothScrollModule } from 'ng2-simple-smooth-scroll';
+import { FilterPipe } from './pipe/filter.pipe';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { Ng2OrderModule } from 'ng2-order-pipe';
+import { NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -19,6 +25,8 @@ import { SortPipe } from './pipe/sort.pipe';
     EmployeeListComponent,
     UpdateEmployeeComponent,
     SortPipe,
+    FilterPipe,
+    
   ],
   imports: [
     BrowserModule,
@@ -26,7 +34,12 @@ import { SortPipe } from './pipe/sort.pipe';
     FormsModule,    
     RouterModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SimpleSmoothScrollModule,
+    NgbModule,
+    Ng2SearchPipeModule,
+    Ng2OrderModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]
