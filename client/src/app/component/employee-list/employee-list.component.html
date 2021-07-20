@@ -2,31 +2,45 @@
     <div class="panel-heading">
       <h2>Employees</h2>
     </div>
-    <div class="panel-body">
+    <!-- <div class="form-group">
+      <label for="search-text">Employee Search</label>
+      <input type="email" class="form-control" id="search-text" aria-describedby="search-text" 
+      [(ngModel)]="searchedKeyword" placeholder="Enter Employee First Name to Search" 
+        autofocus>
+    </div> -->
+    <div>
+      <nav style="border-width: 1px;">
+        <input class="form-control" type="text" name="name" [(ngModel)] = "name" (ngModelChange) = "search()"
+        placeholder = "Enter First Name to Search">
+      </nav>
+    </div>
+    <div class="panel-body" style="margin-top: 10px; text-align: center;vertical-align: middle;">
       <table class="table table-striped">
         <thead>
           <tr>
-            <th style="text-align: center; vertical-align: middle;">
-              <a ></a></th>
-            <th style="text-align: center; vertical-align: middle;">Lastname</th>
-            <th style="text-align: center; vertical-align: middle;">Email</th>
+            <th (click)="sort('name')" style="text-align: center; vertical-align: middle;">Firstname&nbsp;<i class="fa fa-sort"></i></th>
+            <th (click)="sort('lastName')" style="text-align: center; vertical-align: middle;">Lastname&nbsp;<i class="fa fa-sort"></i></th>
+            <th style="text-align: center; vertical-align: middle;">Email&nbsp;<i class="fa fa-sort"></i></th>
+            <th style="text-align: center; vertical-align: middle;">Date Of Joining&nbsp;<i class="fa fa-sort"></i></th>
             <th style="text-align: center; vertical-align: middle;">Actions</th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let employee of employees | async">
-            <td  style="text-align: center; vertical-align: middle;" scope="row">{{employee.firstName}}</td>
+          <tr *ngFor="let employee of employees | orderBy: key: reverse | paginate: {itemsPerPage:5,currentPage:p};">
+            <td  style="text-align: center; vertical-align: middle;" scope="row">{{employee.name}}</td>
             <td  style="text-align: center; vertical-align: middle;" scope="row">{{employee.lastName}}</td>
             <td  style="text-align: center; vertical-align: middle;"scope="row">{{employee.emailId}}</td>
+            <td  style="text-align: center; vertical-align: middle;"scope="row">{{employee.dateOfJoining}}</td>
             <td>  
-              <div class="center">
+              <div class="center" style="text-align: center; vertical-align: middle;margin-left: 10px;">
                 <button (click)="employeeDetails(employee.id)" class="btn btn-info" style="text-align: center; vertical-align: middle;margin-left: 10px;">Details</button>
                 <button (click)="updateEmployee(employee.id)" class="btn btn-info" style="margin-left: 10px; text-align: center;vertical-align: middle;">Update</button>
                 <button (click)="deleteEmployee(employee.id)" class="btn btn-danger" style="margin:10px; text-align: center;vertical-align: middle;">Delete</button>
               </div>              
-            </td>
+            </td>            
           </tr>
         </tbody>
+        <pagination-controls (pageChange)= "p = $event"></pagination-controls>
       </table>
     </div>
   </div>
