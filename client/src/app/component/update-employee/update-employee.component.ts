@@ -12,18 +12,18 @@ export class UpdateEmployeeComponent implements OnInit {
 
   id: number;
   employee: Employee;
+  submitted = false;
 
   constructor(private route: ActivatedRoute,private router: Router,
     private employeeService: EmployeeService) { }
 
   ngOnInit() {
     this.employee = new Employee();
-
+    
     this.id = this.route.snapshot.params['id'];
     
     this.employeeService.getEmployee(this.id)
       .subscribe(data => {
-        console.log(data)
         this.employee = data;
       }, error => console.log(error));
   }
@@ -31,13 +31,14 @@ export class UpdateEmployeeComponent implements OnInit {
   updateEmployee() {
     this.employeeService.updateEmployee(this.id, this.employee)
       .subscribe(data => {
-        console.log(data);
-        this.employee = new Employee();
+        // console.log(data);
+        //this.employee = new Employee();
         this.gotoList();
       }, error => console.log(error));
   }
 
   onSubmit() {
+    this.submitted=true;
     this.updateEmployee();    
   }
 
