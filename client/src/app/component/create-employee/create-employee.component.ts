@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Employee } from 'src/app/model/employee';
 import {EmployeeService } from 'src/app/service/employee.service';
 import { Router } from '@angular/router';
-import { FormGroup, FormsModule,ReactiveFormsModule } from '@angular/forms';
-import {FormControl, Validators, FormBuilder }  from '@angular/forms';
+import { FormGroup } from '@angular/forms';
+
 
 @Component({
   selector: 'app-create-employee',
@@ -16,24 +16,23 @@ export class CreateEmployeeComponent implements OnInit {
   submitted = false;
   emailPattern = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$";  
   // createEmployeeForm: FormGroup;
+  // myform: FormGroup;
 
   constructor(private employeeService: EmployeeService,
     private router: Router) { }
 
-  ngOnInit() {
+    log(x){
+      console.log(x);
+    }
+    
+    ngOnInit() {
     
 
-  }
-
-  newEmployee(): void {
-    this.submitted = false;
-    this.employee = new Employee();
   }
 
   save() {
     this.employeeService
     .createEmployee(this.employee).subscribe(data => {
-      console.log(data)
       this.employee = new Employee();
       this.gotoList();
     }, 
@@ -41,8 +40,11 @@ export class CreateEmployeeComponent implements OnInit {
   }
 
   onSubmit() {
+    
     this.submitted = true;
-    this.save();    
+    console.log("Form Submitted!");
+    this.save();
+  
   }
 
   gotoList() {
