@@ -18,19 +18,27 @@
       <table class="table table-striped">
         <thead>
           <tr>
-            <th (click)="sort('name')" style="text-align: center; vertical-align: middle;">Firstname&nbsp;<i class="fa fa-sort"></i></th>
-            <th (click)="sort('lastName')" style="text-align: center; vertical-align: middle;">Lastname&nbsp;<i class="fa fa-sort"></i></th>
+            <th (click)="sort('id')" style="width:75px; text-align: center; vertical-align: margin;">Id &nbsp; <i class="fa fa-sort"></i> </th>
+            <th  style="text-align: center; vertical-align: middle;">Firstname&nbsp;<i class="fa fa-sort"></i></th>
+            <th style="text-align: center; vertical-align: middle;">Lastname</th>
             <th style="text-align: center; vertical-align: middle;">Email&nbsp;<i class="fa fa-sort"></i></th>
             <th style="text-align: center; vertical-align: middle;">Date Of Joining&nbsp;<i class="fa fa-sort"></i></th>
+            <th style="text-align: center; vertical-align: middle;">Country&nbsp;<i class="fa fa-sort"></i></th>
+            <th style="text-align: center; vertical-align: middle;">State&nbsp;<i class="fa fa-sort"></i></th>
+            <th style="text-align: center; vertical-align: middle;">City&nbsp;<i class="fa fa-sort"></i></th>
             <th style="text-align: center; vertical-align: middle;">Actions</th>
           </tr>
         </thead>
         <tbody>
           <tr *ngFor="let employee of employees | orderBy: key: reverse | paginate: {itemsPerPage:5,currentPage:p};">
-            <td  style="text-align: center; vertical-align: middle;" scope="row">{{employee.name}}</td>
-            <td  style="text-align: center; vertical-align: middle;" scope="row">{{employee.lastName}}</td>
+            <td  style="width: 75px; text-align: center; vertical-align: middle;"scope="row">{{employee.id}}</td>
+            <td  style="text-align: center; vertical-align: middle;"scope="row">{{employee.name}}</td>
+            <td  style="text-align: center; vertical-align: middle;"scope="row">{{employee.lastName}}</td>
             <td  style="text-align: center; vertical-align: middle;"scope="row">{{employee.emailId}}</td>
             <td  style="text-align: center; vertical-align: middle;"scope="row">{{employee.dateOfJoining}}</td>
+            <td  style="text-align: center; vertical-align: middle;"scope="row">{{employee.country}}</td>
+            <td  style="text-align: center; vertical-align: middle;"scope="row">{{employee.state}}</td>
+            <td  style="text-align: center; vertical-align: middle;"scope="row">{{employee.city}}</td>
             <td>  
               <div class="center" style="text-align: center; vertical-align: middle;margin-left: 10px;">
                 <button (click)="employeeDetails(employee.id)" class="btn btn-info" style="text-align: center; vertical-align: middle;margin-left: 10px;">Details</button>
@@ -40,7 +48,13 @@
             </td>            
           </tr>
         </tbody>
-        <pagination-controls (pageChange)= "p = $event"></pagination-controls>
+        <!-- <pagination-controls (pageChange)= "p = $event"  previousLabel=""
+        nextLabel=""></pagination-controls> -->
+        <div class="d-flex justify-content-center">
+          <pagination-controls responsive="true" previousLabel="Prev" nextLabel="Next" 
+            (pageChange)= "p = $event">
+          </pagination-controls>
+        </div>
       </table>
     </div>
   </div>
