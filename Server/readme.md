@@ -19,4 +19,4 @@ Features:
 9. TDD style of approach
 
 
-**Note**: You shall not see the default Spring boot banner as that is turned off by default in the application-dev.properties file
+**Note**: You shall not see the default Spring boot banner, as that is turned off by default in the application-dev.properties file
