@@ -3,7 +3,8 @@
   <form (ngSubmit)="onSubmit()">
     <div class="form-group">
       <label for="name">First Name</label>
-      <input required minLength="3" maxLength="10" type="text" ngModel name="name" #name = "ngModel" (ngModelChange)="log(name)" class="form-control" id="firstName"  [(ngModel)]="employee.name" >
+      <input required minLength="3" maxLength="10" placeholder="Enter First Name" type="text" ngModel name="name" #name = "ngModel" 
+      (ngModelChange)="log(name)" class="form-control" id="firstName"  [(ngModel)]="employee.name" title="Employee First Name" >
       <div class="alert alert-danger" *ngIf="name.touched&&!name.valid">
         First Name is required.
       </div>
@@ -11,7 +12,8 @@
 
     <div class="form-group">
       <label for="lastName">Last Name</label>
-      <input type="text" ngModel name="lastName" #lastName="ngModel" class="form-control" id="lastName" required [(ngModel)]="employee.lastName" >
+      <input type="text" ngModel name="lastName" #lastName="ngModel"  placeholder="Enter Last Name" 
+      class="form-control" id="lastName" required [(ngModel)]="employee.lastName" title="Employee Last Name"  >
       <div class="alert alert-danger" *ngIf="lastName.touched&&!lastName.valid">
         Last Name is required.
       </div>
@@ -19,7 +21,8 @@
 
     <div class="form-group">
       <label for="email">Email Id</label>
-      <input type="email" ngModel  name="emailId" #emailId="ngModel" class="form-control" id="emailId" required [(ngModel)]="employee.emailId">
+      <input type="email" ngModel  name="emailId" #emailId="ngModel"  placeholder="Enter Email"
+       class="form-control" id="emailId" required [(ngModel)]="employee.emailId" title="Employee Email" >
       <div class="alert alert-danger" *ngIf="emailId.touched&&!emailId.valid">
         Email is required.
       </div>
@@ -27,13 +30,46 @@
 
     <div class="form-group">
       <label for="dateOfJoining">DOJ</label>
-      <input type="date" ngModel name="dateOfJoining" #dateOfJoining="ngModel" class="form-control" id="dateOfJoining" required [(ngModel)]="employee.dateOfJoining" >
+      <input type="date" ngModel name="dateOfJoining" #dateOfJoining="ngModel"
+      class="form-control" id="dateOfJoining" required [(ngModel)]="employee.dateOfJoining" title="Employee Date of Joining" >
       <div class="alert alert-danger" *ngIf="dateOfJoining.touched&&!dateOfJoining.valid">
         Date Of Joining is required.
       </div>
     </div>
-    <button type="submit" [disabled]="!(name.valid&&lastName.valid&&emailId.valid&&dateOfJoining.valid)" class="btn btn-success">Submit</button>
-    <button type="submit" (click)="gotoList()"class="btn btn-primary" style="margin-left: 10px; text-align: center;vertical-align: middle;">Back</button>
+
+    <div class="form-group">
+      <label for="country">Country</label>
+      <input type="text" ngModel name="country" #country="ngModel"  placeholder="Enter Country"
+      class="form-control" id="country" required [(ngModel)]="employee.country" title="Employee Residing Country" >
+      <div class="alert alert-danger" *ngIf="country.touched&&!country.valid">
+        Country.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="state">State</label>
+      <input type="text" ngModel name="state" #state="ngModel"  placeholder="Enter State"
+      class="form-control" id="state" required [(ngModel)]="employee.state" title="Employee Residing State" >
+      <div class="alert alert-danger" *ngIf="state.touched&&!state.valid">
+        State.
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="city">City</label>
+      <input type="text" ngModel name="city" #city="ngModel"  placeholder="Enter City"
+      class="form-control" id="city" required [(ngModel)]="employee.city" title="Employee Residing City" >
+      <div class="alert alert-danger" *ngIf="city.touched&&!city.valid">
+        City.
+      </div>
+    </div>
+    <button type="submit" 
+      [disabled]="!(name.valid&&lastName.valid&&emailId.valid&&dateOfJoining.valid&&country.valid&&state.valid&&city.valid)" 
+      class="btn btn-success">Submit
+    </button>
+    <button type="submit" (click)="gotoList()"class="btn btn-primary" 
+      style="margin-left: 10px; text-align: center;vertical-align: middle;">Back
+    </button>
   </form>
 </div>
 
