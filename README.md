@@ -1,10 +1,18 @@
 # Spring Boot Angualr 12 Test Project
 This is a spring boot - angular 12 project which is a CRUD Application, that has these features implemented:
-1. pageniation, 
+1. Angular ngx-Pagination, 
 2. Dynamic search using First Name, 
-3. AOP logging, 
-4. Custom validations for Date and Email, 
-5. Custom Exception Handling
+3. Sorting based on Employee Id
+4. AOP AspectJ logging to handle Around and AfterThrowing Exceptions, 
+5. Custom validations for Date and Email,
+6. Support for Data Schema creation and data initialization at the time of boot 
+7. Custom Exception Handling,
+8. Enabled Caching
+
+Coming soon:
+1. Spirng Security + JWT + Angular Login
+2. Docker Container support
+3. Heroku Cloud deployment
 
 # Main Page
 ![image](https://user-images.githubusercontent.com/10706953/126323291-1748df78-2f82-4ce2-8c77-be305ebc71d1.png)
