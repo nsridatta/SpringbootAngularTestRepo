@@ -5,5 +5,7 @@ export class Employee {
     emailId: string;
     active: boolean;
     dateOfJoining: string;
-    
+    country: string;
+    state: string;
+    city: string;   
 }
