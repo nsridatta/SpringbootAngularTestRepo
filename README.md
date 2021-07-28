@@ -8,6 +8,7 @@ This is a spring boot - angular 12 project which is a CRUD Application, that has
 6. Support for Data Schema creation and data initialization at the time of boot 
 7. Custom Exception Handling,
 8. Enabled Caching
+9. Swagger documentation for all the entities, endpoints and controllers
 
 Coming soon:
 1. Cascading Dropdowns for Country, State, City
