@@ -36,4 +36,16 @@ export class EmployeeService {
   getEmployeesList(): Observable<any> {
     return this.http.get(`${this.baseUrl}`);
   }
+
+  getEmployeeCountryList(country: string):Observable<any>{
+    return this.http.get(`${this.baseUrl}/country?country=${country}`);
+  }
+
+  getEmployeeStateList(state: string):Observable<any>{
+    return this.http.get(`${this.baseUrl}/state?state=${state}`);
+  }
+
+  getEmployeeCityList(city: string):Observable<any>{
+    return this.http.get(`${this.baseUrl}/city?city=${city}`);
+  }
 }
