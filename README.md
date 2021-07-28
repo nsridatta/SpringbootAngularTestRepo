@@ -10,9 +10,10 @@ This is a spring boot - angular 12 project which is a CRUD Application, that has
 8. Enabled Caching
 
 Coming soon:
-1. Spirng Security + JWT + Angular Login
-2. Docker Container support
-3. Heroku Cloud deployment
+1. Cascading Dropdowns for Country, State, City
+2. Spirng Security + JWT + Angular Login
+3. Docker Container support
+4. Heroku Cloud deployment
 
 # Main Page
 ![image](https://user-images.githubusercontent.com/10706953/126323291-1748df78-2f82-4ce2-8c77-be305ebc71d1.png)
