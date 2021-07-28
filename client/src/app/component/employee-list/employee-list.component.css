@@ -13,7 +13,5 @@ table {
   
   table th,
   table td {
-    padding: 1px;
-    
-    /* Apply cell padding */
+    padding: 1px;    
   }
