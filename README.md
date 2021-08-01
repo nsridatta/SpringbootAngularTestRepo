@@ -1,4 +1,4 @@
-# Spring Boot Angualr 12 Test Project
+# Spring Boot Angular 12 Test Project
 This is a spring boot - angular 12 project which is a CRUD Application, that has these features implemented:
 1. Angular ngx-Pagination, 
 2. Dynamic search using First Name, 
