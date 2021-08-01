@@ -30,3 +30,6 @@ Coming soon:
 
 # Update Employee Page
 ![image](https://user-images.githubusercontent.com/10706953/126323585-d63d80d5-9c5b-4508-8cc5-2f43d0d18865.png)
+
+Credits:
+This was inspired from Java Guides
