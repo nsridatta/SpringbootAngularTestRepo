@@ -14,7 +14,7 @@ Coming soon:
 1. Cascading Dropdowns for Country, State, City
 2. Spirng Security + JWT + Angular Login
 3. Docker Container support
-4. Heroku Cloud deployment
+4. AWS Cloud Deployment
 
 # Main Page
 ![image](https://user-images.githubusercontent.com/10706953/126323291-1748df78-2f82-4ce2-8c77-be305ebc71d1.png)
